@@ -1,0 +1,531 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fire: #e74c3c;
+  --fire-light: #fde8e8;
+  --fire-bg: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  --companion: #2ecc71;
+  --companion-light: #e8faf0;
+  --companion-bg: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  --scorer: #3498db;
+  --scorer-light: #e8f4fd;
+  --scorer-bg: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --bg: #f8f9fa;
+  --card-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  --radius: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 60px 20px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bg);
+  border-radius: 50% 50% 0 0;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+}
+
+.header p {
+  font-size: 1.15em;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Entrance Cards */
+.entrance-section {
+  margin-top: -40px;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 60px;
+}
+
+.entrance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.entrance-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
+}
+
+.entrance-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+}
+
+.entrance-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 2em;
+}
+
+.entrance-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 8px;
+}
+
+.entrance-card .subtitle {
+  font-size: 0.95em;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.entrance-card .desc {
+  font-size: 0.85em;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.entrance-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.fire-icon { background: var(--fire-light); color: var(--fire); }
+.companion-icon { background: var(--companion-light); color: var(--companion); }
+.scorer-icon { background: var(--scorer-light); color: var(--scorer); }
+.fire-badge { background: var(--fire-light); color: var(--fire); }
+.companion-badge { background: var(--companion-light); color: var(--companion); }
+.scorer-badge { background: var(--scorer-light); color: var(--scorer); }
+
+/* Page Header */
+.page-header {
+  background: #fff;
+  padding: 30px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.back-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  cursor: pointer;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.back-btn:hover {
+  background: #e9ecef;
+}
+
+.page-header h1 {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+/* Page Hero */
+.page-hero {
+  padding: 40px 20px 50px;
+  color: #fff;
+  text-align: center;
+}
+
+.page-hero h2 {
+  font-size: 2em;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.page-hero p {
+  font-size: 1.05em;
+  opacity: 0.92;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.hero-fire { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 50%, #96281b 100%); }
+.hero-companion { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 50%, #1e8449 100%); }
+.hero-scorer { background: linear-gradient(135deg, #3498db 0%, #2980b9 50%, #1a5276 100%); }
+
+/* Content Section */
+.content-section {
+  padding: 50px 20px 60px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h3 {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: var(--text-light);
+  font-size: 0.95em;
+}
+
+/* Problem Cards (Firefighter) */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.problem-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s;
+}
+
+.problem-card:hover {
+  transform: translateY(-3px);
+}
+
+.problem-card .problem-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--fire-light);
+  color: var(--fire);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-bottom: 16px;
+}
+
+.problem-card h4 {
+  font-size: 1.15em;
+  margin-bottom: 12px;
+  color: var(--fire);
+}
+
+.problem-card p {
+  font-size: 0.9em;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.problem-card .solution {
+  background: var(--fire-light);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 10px;
+}
+
+.problem-card .solution strong {
+  color: var(--fire);
+  font-size: 0.85em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.problem-card .solution p {
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
+/* Knowledge Cards (Companion) */
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 28px;
+}
+
+.knowledge-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s;
+}
+
+.knowledge-card:hover {
+  transform: translateY(-3px);
+}
+
+.knowledge-card .kc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--companion-light);
+  color: var(--companion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  margin-bottom: 16px;
+}
+
+.knowledge-card h4 {
+  font-size: 1.15em;
+  margin-bottom: 10px;
+  color: var(--companion);
+}
+
+.knowledge-card p {
+  font-size: 0.9em;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.knowledge-card .tip {
+  background: var(--companion-light);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 14px;
+}
+
+.knowledge-card .tip strong {
+  color: var(--companion);
+  font-size: 0.85em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.knowledge-card .tip p {
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
+/* Exam Strategy Cards (Scorer) */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.strategy-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 30px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s;
+}
+
+.strategy-card:hover {
+  transform: translateY(-3px);
+}
+
+.strategy-card .sc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--scorer-light);
+  color: var(--scorer);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4em;
+  margin-bottom: 16px;
+}
+
+.strategy-card h4 {
+  font-size: 1.15em;
+  margin-bottom: 10px;
+  color: var(--scorer);
+}
+
+.strategy-card p {
+  font-size: 0.9em;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.strategy-card .highlight {
+  background: var(--scorer-light);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.strategy-card .highlight strong {
+  color: var(--scorer);
+  font-size: 0.85em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.strategy-card .highlight p {
+  font-size: 0.85em;
+  margin-bottom: 0;
+}
+
+/* Two-column layout for special pages */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* Plan Timeline */
+.plan-timeline {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.plan-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.plan-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 19px;
+  top: 44px;
+  bottom: -14px;
+  width: 2px;
+  background: #e9ecef;
+}
+
+.plan-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--scorer-bg);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+
+.plan-content {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--card-shadow);
+  flex: 1;
+}
+
+.plan-content h5 {
+  font-size: 1em;
+  margin-bottom: 6px;
+  color: var(--scorer);
+}
+
+.plan-content p {
+  font-size: 0.88em;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* Footer */
+.footer {
+  background: #2c3e50;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.85em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .entrance-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .knowledge-grid { grid-template-columns: 1fr; }
+  .header h1 { font-size: 1.8em; }
+  .page-hero h2 { font-size: 1.5em; }
+}
+
+@media (max-width: 600px) {
+  .problem-grid { grid-template-columns: 1fr; }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .entrance-card { padding: 28px 20px; }
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s, transform 0.6s;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
